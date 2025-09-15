@@ -1,0 +1,35 @@
+digraph g {
+
+	s0 [shape="circle" label="s0"];
+	s1 [shape="circle" label="s1"];
+	s2 [shape="circle" label="s2"];
+	s3 [shape="circle" label="s3"];
+	s0 -> s1 [label="PDUSessionEstablishmentRequest / pduSessionEstablishmentAccept"];
+	s0 -> s0 [label="PDUSessionModificationRequest / gmmStatus"];
+	s0 -> s0 [label="PDUSessionModificationComplete / gmmStatus"];
+	s0 -> s0 [label="PDUSessionModificationCommandReject / gmmStatus"];
+	s0 -> s0 [label="PDUSessionReleaseRequest / gmmStatus"];
+	s0 -> s0 [label="PDUSessionReleaseComplete / gmmStatus"];
+	s1 -> s1 [label="PDUSessionEstablishmentRequest / pduSessionEstablishmentAccept"];
+	s1 -> s1 [label="PDUSessionModificationRequest / pduSessionModificationCommand"];
+	s1 -> s1 [label="PDUSessionModificationComplete / null_action"];
+	s1 -> s3 [label="PDUSessionModificationCommandReject / null_action"];
+	s1 -> s2 [label="PDUSessionReleaseRequest / pduSessionReleaseCommand"];
+	s1 -> s3 [label="PDUSessionReleaseComplete / null_action"];
+	s2 -> s1 [label="PDUSessionEstablishmentRequest / pduSessionEstablishmentAccept"];
+	s2 -> s0 [label="PDUSessionModificationRequest / null_action"];
+	s2 -> s0 [label="PDUSessionModificationComplete / null_action"];
+	s2 -> s0 [label="PDUSessionModificationCommandReject / null_action"];
+	s2 -> s0 [label="PDUSessionReleaseRequest / null_action"];
+	s2 -> s0 [label="PDUSessionReleaseComplete / null_action"];
+	s3 -> s3 [label="PDUSessionEstablishmentRequest / pduSessionEstablishmentAccept"];
+	s3 -> s3 [label="PDUSessionModificationRequest / gmmStatus"];
+	s3 -> s3 [label="PDUSessionModificationComplete / gmmStatus"];
+	s3 -> s3 [label="PDUSessionModificationCommandReject / gmmStatus"];
+	s3 -> s3 [label="PDUSessionReleaseRequest / gmmStatus"];
+	s3 -> s3 [label="PDUSessionReleaseComplete / gmmStatus"];
+
+__start0 [label="" shape="none" width="0" height="0"];
+__start0 -> s0;
+
+}
